@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './component/Header/header'
 import MainContent from './component/MainContent/MainContent'
+import Footer from './component/Footer/Footer'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+     <Footer/>
     </>
   )
 }
