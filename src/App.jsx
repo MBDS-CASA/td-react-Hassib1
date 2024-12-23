@@ -5,6 +5,7 @@ import './App.css'
 import Header from './component/Header/header'
 import MainContent from './component/MainContent/MainContent'
 import Footer from './component/Footer/Footer'
+import RandomItem from './component/RandomItem/RandomItem.jsx'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
      <Footer/>
+     <RandomItem/>
     </>
   )
 }
