@@ -6,6 +6,7 @@ import Header from './component/Header/header'
 import MainContent from './component/MainContent/MainContent'
 import Footer from './component/Footer/Footer'
 import RandomItem from './component/RandomItem/RandomItem.jsx'
+import Menu from './component/Menu/Menu.jsx'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+    <Menu/>
      <Header/>
      <MainContent/>
       <div>

@@ -8,7 +8,7 @@ const Footer= () => {
   
 
     return (
-        <footer style={{ backgroundColor: 'white', color: 'black', textAlign: 'center',  }}>
+        <footer style={{ backgroundColor: 'white', color: 'black', textAlign: 'center'}}>
          
             <p>{year} - Safaa Hassib, Tous droits réservés.</p>
         </footer>
