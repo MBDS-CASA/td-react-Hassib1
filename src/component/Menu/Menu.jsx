@@ -1,51 +1,87 @@
-import React from 'react';
+import React, { useState } from "react";
+import Notes from "../Notes/Notes";
+import Etudiants from "../Etudiants/Etudiants";
+import Matieres from "../Matieres/Matiere";
+import Apropos from "../Apropos/Apropos";
 
 const Menu = () => {
-    // Fonction pour afficher une alerte avec le texte de l'élément cliqué
-    const handleClick = (text) => {
-        alert(`Vous avez cliqué sur : ${text}`);
-    };
+  // État pour suivre l'élément actif
+  const [activeItem, setActiveItem] = useState("notes");
 
-    return (
-        <nav style={styles.navbar}>
-            <ul style={styles.menu}>
-                <li style={styles.menuItem}><a href="#home" style={styles.link} onClick={() => handleClick('Accueil')}>Accueil</a></li>
-                <li style={styles.menuItem}><a href="#about" style={styles.link} onClick={() => handleClick('À propos')}>À propos</a></li>
-                <li style={styles.menuItem}><a href="#services" style={styles.link} onClick={() => handleClick('Services')}>Services</a></li>
-                <li style={styles.menuItem}><a href="#contact" style={styles.link} onClick={() => handleClick('Contact')}>Contact</a></li>
-            </ul>
-        </nav>
-    );
+  // Fonction pour gérer le clic sur un élément du menu
+  const handleMenuClick = (item) => {
+    setActiveItem(item);
+    // Ajouter une alerte pour afficher le nom de l'élément sélectionné
+    alert(`Vous avez cliqué sur : ${item}`);
+  };
+
+  return (
+    <div>
+      <nav>
+        <ul style={styles.menu}>
+          <li
+            style={activeItem === "notes" ? styles.activeMenuItem : styles.menuItem}
+            onClick={() => handleMenuClick("notes")}
+          >
+            Notes
+          </li>
+          <li
+            style={activeItem === "Etudiants" ? styles.activeMenuItem : styles.menuItem}
+            onClick={() => handleMenuClick("Etudiants")}
+          >
+            Étudiants
+          </li>
+          <li
+            style={activeItem === "Matieres" ? styles.activeMenuItem : styles.menuItem}
+            onClick={() => handleMenuClick("Matieres")}
+          >
+            Matières
+          </li>
+          <li
+            style={activeItem === "Apropos" ? styles.activeMenuItem : styles.menuItem}
+            onClick={() => handleMenuClick("Apropos")}
+          >
+            À propos
+          </li>
+        </ul>
+      </nav>
+      <div style={styles.content}>
+        {activeItem === "notes" && <Notes />}
+        {activeItem === "Etudiants" && <Etudiants />}
+        {activeItem === "Matieres" && <Matieres />}
+        {activeItem === "Apropos" && <Apropos />}
+      </div>
+    </div>
+  );
 };
 
+// Styles en objet JavaScript
 const styles = {
-    navbar: {
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '250px',
-        height: '100%',
-        backgroundColor: '#333',
-        padding: '20px 0',
-        boxShadow: '4px 0 6px rgba(0, 0, 0, 0.1)',
-    },
-    menu: {
-        listStyle: 'none',
-        margin: 0,
-        padding: 0,
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    menuItem: {
-        marginBottom: '20px',
-        color: 'white',
-    },
-    link: {
-        color: 'white',
-        textDecoration: 'none',
-        fontSize: '18px',
-        transition: 'color 0.3s',
-    },
+  menu: {
+    listStyle: "none",
+    display: "flex",
+    padding: 0,
+    margin: 0,
+    borderBottom: "2px solid #ccc",
+  },
+  menuItem: {
+    marginRight: "20px",
+    padding: "10px 15px",
+    cursor: "pointer",
+    color: "white",
+    textDecoration: "none",
+  },
+  activeMenuItem: {
+    marginRight: "20px",
+    padding: "10px 15px",
+    cursor: "pointer",
+    color: "blue",
+    fontWeight: "bold",
+    borderBottom: "2px solid blue",
+  },
+  content: {
+    marginTop: "20px",
+  },
 };
 
 export default Menu;
